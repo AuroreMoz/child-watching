@@ -1,0 +1,36 @@
+#cw-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cw-header-icon {
+    width: 32px;
+    cursor: pointer;
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.cw-card {
+    margin: 20px;
+}
+
+.cw-card-description {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cw-card-image {
+    width: 300px;
+}
+
+.cw-card-icon {
+    height: 25px;
+}

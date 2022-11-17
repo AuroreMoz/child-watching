@@ -1,0 +1,74 @@
+<div id="cw-param-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>L'enfant</h2>
+        </div>
+        <div class="modal-body">
+            <p>Son prénom</p>
+            <p>Sa date de naissance</p>
+        </div>
+        <div class="modal-footer">
+            <button id="cw-param-modal-cancel">Annuler</button>
+            <button>Valider</button>
+        </div>
+    </div>
+</div>
+<style>
+    .modal-header h2 {
+        margin: 0;
+    }
+
+    .modal-header {
+        background: #000;
+        padding: 15px;
+        color: #fff;
+    }
+
+    .modal-footer{
+        background: #a4a4a4;
+        padding: 15px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .modal-content{
+        background-color: #fff;
+        margin: 20% auto;
+        width: 70%;
+        box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    }
+
+    .modal-overlay{
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+
+
+
+
+    .modal-body{
+        padding: 10px 20px;
+    }
+
+
+
+    .closeBtn{
+        font-size: 30px;
+        color: #fff;
+        float: right;
+    }
+
+    .closeBtn:hover,.closeBtn:focus{
+        color: #e439ef;
+        text-decoration: none;
+        cursor:  pointer;
+    }
+
+</style>
