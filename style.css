@@ -19,12 +19,26 @@ ul li {
 
 .cw-card {
     margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 10px;
+}
+
+.cw-card-pegi {
+    position: relative;
+    z-index: 100;
+    left: 0;
+    top: 0;
 }
 
 .cw-card-description {
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.cw-card-description-info {
+    align-self: flex-end;
+    cursor: pointer;
 }
 
 .cw-card-image {
