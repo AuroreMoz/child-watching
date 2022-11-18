@@ -1,6 +1,24 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#cw-content-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+
 #cw-header {
     display: flex;
     justify-content: space-between;
+    padding: 20px;
+
+}
+
+.cw-header-title {
+    font-family: Pacifico, Arial;
+    font-size: 2em;
 }
 
 .cw-header-icon {
@@ -11,6 +29,7 @@ ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: stretch;
 }
 
 ul li {
@@ -21,6 +40,7 @@ ul li {
     margin: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 10px;
+    background-color: #ffffff;
 }
 
 .cw-card-pegi {
@@ -38,7 +58,11 @@ ul li {
 
 .cw-card-description-info {
     align-self: flex-end;
-    cursor: pointer;
+}
+
+.cw-card-description-info-unavailable {
+    color: #bdbdbd;
+    align-self: flex-end;
 }
 
 .cw-card-image {

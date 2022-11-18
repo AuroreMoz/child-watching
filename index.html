@@ -17,96 +17,25 @@
 <body>
 <div class="cw-main-container cw-flex">
     <header id="cw-header">
-        <span>L'enfant qui regarde</span>
+        <span class="cw-header-title">L'enfant qui regarde</span>
         <img id="cw-param-modal-icon" class="cw-header-icon" src="assets/reglages.svg" alt="parameters">
     </header>
     <div id="cw-param-modal-container"></div>
     <div id="cw-content-container">
         <h1>Bonjour Edgar !</h1>
         <h2>Mes séries</h2>
-            <ul>
-                <li>
-                    <div class="cw-card">
-                        <img src="assets/serie/trotro.png" class="cw-card-image">
-                        <div class="cw-card-description">
-                            <h3>L'âne Trotro</h3>
-                            <a href="https://www.netflix.com/title/70234499" target="_blank">
-                                <img src="assets/netflix.png" class="cw-card-icon">
-                            </a>
-                            <span class="cw-card-description-info">Plus d'info</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="cw-card">
-                        <img src="assets/serie/simon.png" class="cw-card-image">
-                        <div class="cw-card-description">
-                            <h3>Simon</h3>
-                            <a href="https://www.netflix.com/title/80227186" target="_blank"><img src="assets/netflix.png" class="cw-card-icon"></a>
-                            <span class="cw-card-description-info">Plus d'info</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="cw-card">
-                        <img src="assets/serie/puffin_rock.png" class="cw-card-image">
-                        <div class="cw-card-description">
-                            <h3>Puffin Rock</h3>
-                            <a href="https://www.netflix.com/title/80044965" target="_blank"><img src="assets/netflix.png" class="cw-card-icon"></a>
-                            <span class="cw-card-description-info">Plus d'info</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="cw-card">
-                        <img src="assets/serie/ocean_d_amour.png" class="cw-card-image">
-                        <div class="cw-card-description">
-                            <h3>Océan d'amour</h3>
-                            <a href="https://www.netflix.com/title/81095076" target="_blank"><img src="assets/netflix.png" class="cw-card-icon"></a>
-                            <span class="cw-card-description-info">Plus d'info</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="cw-card">
-                        <img src="assets/serie/llama.png" class="cw-card-image">
-                        <div class="cw-card-description">
-                            <h3>Llama Llama</h3>
-                            <a href="https://www.netflix.com/title/80115338" target="_blank"><img src="assets/netflix.png" class="cw-card-icon"></a>
-                            <span class="cw-card-description-info">Plus d'info</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <ul id="cw-content-series"></ul>
         <h2>Mes films</h2>
-        <ul>
-            <li>
-                <div class="cw-card">
-                    <img src="assets/film/totoro.png" class="cw-card-image">
-                    <div class="cw-card-description">
-                        <h3>Mon voisin Totoro</h3>
-                        <a href="https://www.netflix.com/title/60032294" target="_blank"><img src="assets/netflix.png" class="cw-card-icon"></a>
-                        <span class="cw-card-description-info">Plus d'info</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="cw-card">
-                    <img src="assets/film/kiki.png" class="cw-card-image">
-                    <div class="cw-card-description">
-                        <h3>Kiki la petite sorcière</h3>
-                        <a href="https://www.netflix.com/title/80044965" target="_blank"><img src="assets/netflix.png" class="cw-card-icon"></a>
-                        <span class="cw-card-description-info">Plus d'info</span>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        <ul id="cw-content-movies"></ul>
     </div>
 <!--    <footer class="cw-footer"></footer>-->
 </div>
 
-<script src="./js/page.js" defer></script>
 <script src="./js/param-modal.js" defer></script>
+<script src="./js/contents.js" defer></script>
+<script src="./js/card.js" defer></script>
+<script src="./js/page.js" defer></script>
+
 
 </body>
 </html>
