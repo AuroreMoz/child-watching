@@ -23,9 +23,9 @@ function getFavoriteTemplate(id){
 
 function getInformationTemplate(informationToDisplay){
     if(informationToDisplay){
-        return `<a href="${informationToDisplay}" class="cw-card-description-info" target="_blank">Plus d'info</a>`
+        return `<a href="${informationToDisplay}" target="_blank"><img src="assets/info_enabled.svg" class="cw-card-icon"></a>`
     }
-    return "<span class='cw-card-description-info'>Info non disponible</span>";
+    return `<span class='cw-card-description-info'><img src="assets/info_disabled.svg" class="cw-card-icon"></span>`;
 }
 
 function getAvailabilityTemplate(availability) {
