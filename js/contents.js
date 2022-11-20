@@ -1,5 +1,6 @@
 const series = [
     {
+        id: "s1",
         name: "L'âne Trotro",
         age: "30",
         info: "https://www.filmspourenfants.net/lane-trotro/",
@@ -7,6 +8,7 @@ const series = [
         image: "series/trotro.png"
     },
     {
+        id: "s2",
         name: "Simon",
         age: "30",
         info: "https://www.filmspourenfants.net/simon/",
@@ -14,6 +16,7 @@ const series = [
         image: "series/simon.png"
     },
     {
+        id: "s3",
         name: "Puffin Rock",
         age: "30",
         info: "https://www.filmspourenfants.net/puffin-rock/",
@@ -21,6 +24,7 @@ const series = [
         image: "series/puffin_rock.png"
     },
     {
+        id: "s4",
         name: "Océan d'amour",
         age: "30",
         info: "https://www.filmspourenfants.net/ocean-damour/",
@@ -28,12 +32,14 @@ const series = [
         image: "series/ocean_d_amour.png"
     },
     {
-        name: "Llama Llama",
+        id: "s5",
+        name: "Petit Lama",
         age: "30",
         available: {"netflix": "https://www.netflix.com/title/80115338"},
         image: "series/llama.png"
     },
     {
+        id: "s6",
         name: "Les Octonauts",
         age: "37",
         info: "https://www.filmspourenfants.net/les-octonauts/",
@@ -44,6 +50,7 @@ const series = [
 
 const movies = [
     {
+        id: "m1",
         name: "Mon voisin Totoro",
         age: "34",
         info: "https://www.filmspourenfants.net/mon-voisin-totoro/",
@@ -51,11 +58,20 @@ const movies = [
         image: "movies/totoro.png"
     },
     {
+        id: "m2",
         name: "Kiki la petite sorcière",
         age: "35",
         info: "https://www.filmspourenfants.net/kiki-la-petite-sorciere/",
         available: {"netflix": "https://www.netflix.com/title/60027106"},
         image: "movies/kiki.png"
+    },
+    {
+        id: "m3",
+        name: "Arrietty,\n le petit monde des chapardeurs ",
+        age: "36",
+        info: "https://www.filmspourenfants.net/arrietty-le-petit-monde-des-chapardeurs/",
+        available: {"netflix": "https://www.netflix.com/title/70216227"},
+        image: "movies/arrietty.png"
     }
 ];
 
@@ -66,9 +82,10 @@ function getContents() {
         localStorage.setItem("child.birth", birthDate);
     }
     const age = getMonthDifference(new Date(birthDate), new Date());
+    console.log(age)
     return {
-        series: series.filter((serie) => serie.age <= age),
-        movies: movies.filter((movie) => movie.age <= age),
+        series: series.filter((serie) => serie.age < age),
+        movies: movies.filter((movie) => movie.age < age),
     };
 
     function getMonthDifference(startDate, endDate) {

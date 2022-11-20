@@ -53,16 +53,18 @@ ul li {
 .cw-card-description {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: center
+}
+
+.cw-card-description h3 {
+    white-space: pre;
 }
 
 .cw-card-description-info {
-    align-self: flex-end;
 }
 
 .cw-card-description-info-unavailable {
     color: #bdbdbd;
-    align-self: flex-end;
 }
 
 .cw-card-image {
@@ -71,4 +73,8 @@ ul li {
 
 .cw-card-icon {
     height: 25px;
+}
+
+.cw-card-footer {
+    display: flex;justify-content: space-between;
 }
