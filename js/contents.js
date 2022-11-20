@@ -82,10 +82,9 @@ function getContents() {
         localStorage.setItem("child.birth", birthDate);
     }
     const age = getMonthDifference(new Date(birthDate), new Date());
-    console.log(age)
     return {
-        series: series.filter((serie) => serie.age < age),
-        movies: movies.filter((movie) => movie.age < age),
+        series: series.filter((serie) => serie.age < age).sort(sortContents),
+        movies: movies.filter((movie) => movie.age < age).sort(sortContents),
     };
 
     function getMonthDifference(startDate, endDate) {
@@ -94,5 +93,16 @@ function getContents() {
             startDate.getMonth() +
             12 * (endDate.getFullYear() - startDate.getFullYear())
         );
+    }
+
+    function sortContents(c1, c2) {
+        const favoriteC1 = localStorage.getItem(`favorite.${c1.id}`) || 'false';
+        const favoriteC2 = localStorage.getItem(`favorite.${c2.id}`) || 'false';
+        if(favoriteC1 === favoriteC2) {
+            return c1.name > c2.name ? 1 : -1;
+        } else if(favoriteC1 === 'true'){
+                return -1;
+        }
+        return 1;
     }
 }
