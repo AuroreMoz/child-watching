@@ -1,4 +1,4 @@
-function getCardTemplate(content) {
+function getCardTemplate(content, contentType) {
     return `
 <div class="cw-card">
 <img src="assets/${content.image}" class="cw-card-image" alt="${content.image}">
@@ -6,7 +6,7 @@ function getCardTemplate(content) {
 <h3>${content.name}</h3>
 ${getAvailabilityTemplate(content.available)}
 <div class="cw-card-footer">
-<img onclick="toggleFavorite(this, '${content.id}')" src="assets/${getFavoriteTemplate(content.id)}" alt="favorite" class="cw-card-icon">
+<img onclick="toggleFavorite(this, '${content.id}', '${contentType}')" src="assets/${getFavoriteTemplate(content.id)}" alt="favorite" class="cw-card-icon">
 ${getInformationTemplate(content.info)}
 </div>
 </div>
@@ -41,13 +41,12 @@ function getAvailabilityTemplate(availability) {
     return `<img src="assets/${image}.png" class="cw-card-icon" alt="${image}"></a>`;
 }
 
-function toggleFavorite(element, id) {
+function toggleFavorite(element, id, contentType) {
     const actualFavorite = localStorage.getItem(`favorite.${id}`)
     if(actualFavorite && actualFavorite === 'true'){
         localStorage.setItem(`favorite.${id}`, 'false');
-        element.src = "assets/star_disabled.png";
     } else {
         localStorage.setItem(`favorite.${id}`, 'true');
-        element.src = "assets/star_enabled.png";
     }
+    refreshList(contentType)
 }

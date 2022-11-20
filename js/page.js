@@ -11,7 +11,7 @@ addMovies(contentsToDisplay.movies);
 function addSeries(seriesToDisplay){
     let template = "";
     seriesToDisplay.forEach((serieToDisplay) => {
-        template += `<li>${getCardTemplate(serieToDisplay)}</li>`
+        template += `<li>${getCardTemplate(serieToDisplay, 'SERIES')}</li>`
     })
     seriesContainer.innerHTML=template;
 }
@@ -19,7 +19,23 @@ function addSeries(seriesToDisplay){
 function addMovies(moviesToDisplay) {
     let template = "";
     moviesToDisplay.forEach((movieToDisplay) => {
-        template += `<li>${getCardTemplate(movieToDisplay)}</li>`
+        template += `<li>${getCardTemplate(movieToDisplay, 'MOVIES')}</li>`
     })
     moviesContainer.innerHTML = template;
+}
+
+function refreshList(contentType){
+    switch (contentType){
+        case 'SERIES': {
+            contentsToDisplay.series = getSeries()
+            addSeries(contentsToDisplay.series)
+            break;
+        }
+        case 'MOVIES': {
+            contentsToDisplay.movies = getMovies()
+            addMovies(contentsToDisplay.movies)
+            break;
+        }
+        default: break;
+    }
 }

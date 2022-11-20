@@ -76,16 +76,19 @@ const movies = [
 ];
 
 function getContents() {
+    return {
+        series: getSeries(),
+        movies: getMovies(),
+    };
+}
+
+function getAge() {
     let birthDate = localStorage.getItem("child.birth");
     if(!birthDate) {
         birthDate = '2019-11-26'
         localStorage.setItem("child.birth", birthDate);
     }
-    const age = getMonthDifference(new Date(birthDate), new Date());
-    return {
-        series: series.filter((serie) => serie.age < age).sort(sortContents),
-        movies: movies.filter((movie) => movie.age < age).sort(sortContents),
-    };
+    return getMonthDifference(new Date(birthDate), new Date());
 
     function getMonthDifference(startDate, endDate) {
         return (
@@ -94,15 +97,27 @@ function getContents() {
             12 * (endDate.getFullYear() - startDate.getFullYear())
         );
     }
-
-    function sortContents(c1, c2) {
-        const favoriteC1 = localStorage.getItem(`favorite.${c1.id}`) || 'false';
-        const favoriteC2 = localStorage.getItem(`favorite.${c2.id}`) || 'false';
-        if(favoriteC1 === favoriteC2) {
-            return c1.name > c2.name ? 1 : -1;
-        } else if(favoriteC1 === 'true'){
-                return -1;
-        }
-        return 1;
-    }
 }
+
+function sortContents(c1, c2) {
+    const favoriteC1 = localStorage.getItem(`favorite.${c1.id}`) || 'false';
+    const favoriteC2 = localStorage.getItem(`favorite.${c2.id}`) || 'false';
+    if(favoriteC1 === favoriteC2) {
+        return c1.name > c2.name ? 1 : -1;
+    } else if(favoriteC1 === 'true'){
+        return -1;
+    }
+    return 1;
+}
+
+function getSeries(){
+    const age = getAge();
+    return series.filter((serie) => serie.age < age).sort(sortContents);
+}
+
+function getMovies(){
+    const age = getAge();
+    return movies.filter((movie) => movie.age < age).sort(sortContents);
+}
+
+
