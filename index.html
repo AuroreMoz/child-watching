@@ -18,11 +18,11 @@
 <div class="cw-main-container cw-flex">
     <header id="cw-header">
         <span class="cw-header-title">L'enfant qui regarde</span>
-        <img id="cw-param-modal-icon" class="cw-header-icon" src="assets/reglages.svg" alt="parameters">
+        <img id="cw-param-modal-icon" onclick="openModal()" class="cw-header-icon" src="assets/reglages.svg" alt="parameters">
     </header>
     <div id="cw-param-modal-container"></div>
     <div id="cw-content-container">
-        <h1>Bonjour Edgar !</h1>
+        <h1>Bonjour <span id="cw-content-child-name">Edgar</span> !</h1>
         <h2>Mes séries</h2>
         <section>
             <ul id="cw-content-series"></ul>
