@@ -1,5 +1,6 @@
 function getCardTemplate(content, contentType) {
     return `
+<div class="cw-card-pegi">${getPegi(content.age)}</div>
 <div class="cw-card">
 <img src="assets/${content.image}" class="cw-card-image" alt="${content.image}">
 <div class="cw-card-description">
@@ -10,7 +11,9 @@ ${getAvailabilityTemplate(content.available)}
 ${getInformationTemplate(content.info)}
 </div>
 </div>
-</div>`
+</div>
+
+`
 }
 
 function getFavoriteTemplate(id){
@@ -49,4 +52,10 @@ function toggleFavorite(element, id, contentType) {
         localStorage.setItem(`favorite.${id}`, 'true');
     }
     refreshList(contentType)
+}
+
+function getPegi(age) {
+    const year = Math.floor(age/12);
+    const demi = (age%12) >= 6;
+    return `<span class="cw-bold">${year}${demi?'+':''}</span>`
 }

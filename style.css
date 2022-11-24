@@ -36,24 +36,40 @@ ul li {
     list-style-type: none;
 }
 
+.cw-bold {
+    font-weight: bolder;
+}
+
 .cw-card {
     margin: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 10px;
     background-color: #ffffff;
+    height: 365px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .cw-card-pegi {
     position: relative;
-    z-index: 100;
-    left: 0;
-    top: 0;
+    top: 80px; left: 280px;
+    /*align-self: flex-end;*/
+    font-size: 1.5em;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    background-color: white;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+
 }
 
 .cw-card-description {
     display: flex;
     flex-direction: column;
-    text-align: center
+    text-align: center;
+    justify-content: space-between;
 }
 
 .cw-card-description h3 {
