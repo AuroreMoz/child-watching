@@ -9,8 +9,7 @@ const moviesContainer = document.getElementById('cw-content-movies');
 addMovies(contentsToDisplay.movies);
 
 // nom de l'enfant
-const spanName = document.getElementById('cw-content-child-name');
-spanName.innerText = localStorage.getItem("child.name") || "";
+refreshName()
 
 function addSeries(seriesToDisplay){
     let template = "";
@@ -49,4 +48,9 @@ function refreshList(contentType){
         }
         default: break;
     }
+}
+
+function refreshName(){
+    const spanName = document.getElementById('cw-content-child-name');
+    spanName.innerText = localStorage.getItem("child.name") || "";
 }

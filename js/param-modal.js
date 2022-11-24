@@ -40,6 +40,7 @@ function validateModal(){
 
     closeModal();
     refreshList("ALL");
+    refreshName()
 }
 
 
