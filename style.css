@@ -1,4 +1,5 @@
 body {
+    font-family: Roboto, Arial;
     padding: 0;
     margin: 0;
 }
@@ -34,6 +35,7 @@ ul {
 
 ul li {
     list-style-type: none;
+    display: block;
 }
 
 .cw-bold {
@@ -88,10 +90,18 @@ ul li {
 
 .cw-card-icon {
     height: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.cw-card-footer-actions {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .cw-card-footer {
-    display: flex;justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 #cw-param-modal-container {

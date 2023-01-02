@@ -2,25 +2,26 @@ function getCardTemplate(content, contentType) {
     return `
 <div class="cw-card-pegi">${getPegi(content.age)}</div>
 <div class="cw-card">
-${getImageTemplate(content.image, content.available)}
+${getImageTemplate(content.image, content.available, content.id)}
 <div class="cw-card-description">
 <h3>${content.name}</h3>
 ${getAvailabilityTemplate(content.available)}
 <div class="cw-card-footer">
+<div class="cw-card-footer-actions">
 <img onclick="toggleFavorite(this, '${content.id}', '${contentType}')" src="assets/${getFavoriteTemplate(content.id)}" alt="favorite" class="cw-card-icon">
+<img onclick="toggleVisibility(this, '${content.id}', '${contentType}')" src="assets/${getVisibilityTemplate(content.id)}" alt="visibility" class="cw-card-icon">
+</div>
 ${getInformationTemplate(content.info)}
 </div>
 </div>
 </div>
-
 `
 }
 
-function isAvailable(availability) {
-    return availability && Object.keys(availability).length && Object.values(availability)[0]!=='';
-}
-
-function getImageTemplate(image, availability) {
+function getImageTemplate(image, availability, contentId) {
+    if(!isVisible(contentId)){
+        return `<img src="assets/locked.png" class="cw-card-image" alt="content not visible"></a>`
+    }
     if(isAvailable(availability)){
         return `<a href="${Object.values(availability)[0]}" target="_blank"><img src="assets/${image}" class="cw-card-image" alt="${image}"></a>`
     }
@@ -33,6 +34,13 @@ function getFavoriteTemplate(id){
         return "star_enabled.png"
     }
     return "star_disabled.png";
+}
+
+function getVisibilityTemplate(contentId){
+    if(!isVisible(contentId)){
+        return "lock.png"
+    }
+    return "unlock.png";
 }
 
 function getInformationTemplate(informationToDisplay){
@@ -61,6 +69,15 @@ function toggleFavorite(element, id, contentType) {
         localStorage.setItem(`favorite.${id}`, 'false');
     } else {
         localStorage.setItem(`favorite.${id}`, 'true');
+    }
+    refreshList(contentType)
+}
+
+function toggleVisibility(element, contentId, contentType) {
+    if(!isVisible(contentId)){
+        localStorage.setItem(`visibility.${contentId}`, 'true');
+    } else {
+        localStorage.setItem(`visibility.${contentId}`, 'false');
     }
     refreshList(contentType)
 }

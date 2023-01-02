@@ -76,7 +76,7 @@ const movies = [
     {
         id: "m2",
         name: "Kiki la petite sorcière",
-        age: "35",
+        age: "37",
         info: "https://www.filmspourenfants.net/kiki-la-petite-sorciere/",
         available: {"netflix": "https://www.netflix.com/title/60027106"},
         image: "movies/kiki.png"
@@ -275,7 +275,20 @@ function getAge() {
     }
 }
 
-function sortContents(c1, c2) {
+function sortContents(c1, c2){
+    const visibilityC1 = isVisible(c1.id);
+    const visibilityC2 = isVisible(c2.id);
+    if(visibilityC1 === visibilityC2) {
+        return sortByFavorite(c1, c2);
+    } else {
+        if(visibilityC1){
+            return -1;
+        }
+        return 1;
+    }
+}
+
+function sortByFavorite(c1, c2) {
     const favoriteC1 = localStorage.getItem(`favorite.${c1.id}`) || 'false';
     const favoriteC2 = localStorage.getItem(`favorite.${c2.id}`) || 'false';
     if(favoriteC1 === favoriteC2) {
@@ -294,6 +307,22 @@ function getSeries(){
 function getMovies(){
     const age = getAge();
     return movies.filter((movie) => movie.age < age).sort(sortContents);
+}
+
+function isVisible(contentId) {
+    const contentVisibility = localStorage.getItem(`visibility.${contentId}`) || 'true';
+    if(contentVisibility === 'true'){
+        return true;
+    }
+    return false;
+}
+
+function hasAvailable(availability) {
+    return availability && Object.keys(availability).length;
+}
+
+function isAvailable(availability) {
+    return hasAvailable(availability) && Object.values(availability)[0] !== '';
 }
 
 

@@ -110,8 +110,6 @@ const paramModalHtml = `
         font-size: 1.3em;
     }
     .cw-modal-body-element {
-        /*display: flex;*/
-        /*flex-direction: column;*/
         padding: 10px;
         
     }
