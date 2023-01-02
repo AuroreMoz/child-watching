@@ -41,7 +41,7 @@ const series = [
     {
         id: "s6",
         name: "Les Octonauts",
-        age: "38",
+        age: "36",
         info: "https://www.filmspourenfants.net/les-octonauts/",
         available: {"netflix": "https://www.netflix.com/title/80020935"},
         image: "series/octonauts.png"
@@ -49,12 +49,19 @@ const series = [
     {
         id: "s7",
         name: "Yakari",
-        age: "42",
+        age: "48",
         info: "https://www.filmspourenfants.net/yakari/",
         available: {"netflix": "https://www.netflix.com/title/70234488"},
         image: "series/yakari.png"
     },
-
+    {
+        id: "s8",
+        name: "Ella, Oscar et Hoo",
+        age: "40",
+        info: "https://www.filmspourenfants.net/ella-oscar-hoo/",
+        available: {"prime": ""},
+        image: "movies/ella-oscar-hoo.png"
+    },
 ];
 
 const movies = [
@@ -77,7 +84,7 @@ const movies = [
     {
         id: "m3",
         name: "Arrietty,\n le petit monde des chapardeurs ",
-        age: "38",
+        age: "48",
         info: "https://www.filmspourenfants.net/arrietty-le-petit-monde-des-chapardeurs/",
         available: {"netflix": "https://www.netflix.com/title/70216227"},
         image: "movies/arrietty.png"
@@ -133,18 +140,10 @@ const movies = [
     {
         id: "m10",
         name: "Le Noël de Nico Nickel",
-        age: "36",
+        age: "48",
         info: "https://www.filmspourenfants.net/le-noel-de-nico-nickel/",
         available: {"netflix": "https://www.netflix.com/title/81010807"},
         image: "movies/noel_nico_nickel.png"
-    },
-    {
-        id: "m11",
-        name: "Ella, Oscar et Hoo",
-        age: "40",
-        info: "https://www.filmspourenfants.net/ella-oscar-hoo/",
-        available: {"prime": ""},
-        image: "movies/ella-oscar-hoo.png"
     },
     {
         id: "m12",
@@ -189,7 +188,7 @@ const movies = [
     {
         id: "m17",
         name: "Clochette\net l'expédition féérique",
-        age: "37",
+        age: "38",
         info: "https://www.filmspourenfants.net/clochette-et-lexpedition-feerique/",
         available: {"local": ""},
         image: "movies/clochette_expedition.png"
@@ -207,7 +206,7 @@ const movies = [
         name: "Clochette\net le tournoi des fées",
         age: "40",
         info: "https://www.filmspourenfants.net/clochette-et-le-tournoi-des-fees/",
-        available: {"local": ""},
+        available: {},
         image: "movies/clochette_tournoi.png"
     },
     {

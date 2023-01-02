@@ -2,7 +2,7 @@ function getCardTemplate(content, contentType) {
     return `
 <div class="cw-card-pegi">${getPegi(content.age)}</div>
 <div class="cw-card">
-<img src="assets/${content.image}" class="cw-card-image" alt="${content.image}">
+${getImageTemplate(content.image, content.available)}
 <div class="cw-card-description">
 <h3>${content.name}</h3>
 ${getAvailabilityTemplate(content.available)}
@@ -14,6 +14,17 @@ ${getInformationTemplate(content.info)}
 </div>
 
 `
+}
+
+function isAvailable(availability) {
+    return availability && Object.keys(availability).length && Object.values(availability)[0]!=='';
+}
+
+function getImageTemplate(image, availability) {
+    if(isAvailable(availability)){
+        return `<a href="${Object.values(availability)[0]}" target="_blank"><img src="assets/${image}" class="cw-card-image" alt="${image}"></a>`
+    }
+    return `<img src="assets/${image}" class="cw-card-image" alt="${image}">`
 }
 
 function getFavoriteTemplate(id){
@@ -34,7 +45,7 @@ function getInformationTemplate(informationToDisplay){
 function getAvailabilityTemplate(availability) {
     let image = "unavailable.png";
     let link = "";
-    if (availability && Object.keys(availability).length) {
+    if (isAvailable(availability)) {
         image = Object.keys(availability)[0];
         link = Object.values(availability)[0];
         return `<a href=${link} target="_blank">
