@@ -66,6 +66,17 @@ ul li {
 
 }
 
+.cw-card-rating {
+    position: relative;
+    bottom: 35px;
+
+}
+
+.cw-card-rating-icons {
+    display: flex;
+    flex-direction: column;
+}
+
 .cw-card-description {
     display: flex;
     flex-direction: column;

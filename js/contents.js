@@ -92,7 +92,7 @@ const movies = [
     {
         id: "m4",
         name: "Ponyo sur la falaise",
-        age: "42",
+        age: "38",
         info: "https://www.filmspourenfants.net/ponyo-sur-la-falaise-pres-de-la-mer/",
         available: {"netflix": "https://www.netflix.com/title/70106454"},
         image: "movies/ponyo.png"
@@ -289,11 +289,12 @@ function sortContents(c1, c2){
 }
 
 function sortByFavorite(c1, c2) {
-    const favoriteC1 = localStorage.getItem(`favorite.${c1.id}`) || 'false';
-    const favoriteC2 = localStorage.getItem(`favorite.${c2.id}`) || 'false';
+    const favoriteC1 = localStorage.getItem(`favorite.${c1.id}`) || '0';
+    const favoriteC2 = localStorage.getItem(`favorite.${c2.id}`) || '0';
     if(favoriteC1 === favoriteC2) {
         return c1.name > c2.name ? 1 : -1;
-    } else if(favoriteC1 === 'true'){
+    }
+    if(favoriteC1 > favoriteC2){
         return -1;
     }
     return 1;

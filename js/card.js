@@ -8,8 +8,8 @@ ${getImageTemplate(content.image, content.available, content.id)}
 ${getAvailabilityTemplate(content.available)}
 <div class="cw-card-footer">
 <div class="cw-card-footer-actions">
-<img onclick="toggleFavorite(this, '${content.id}', '${contentType}')" src="assets/${getFavoriteTemplate(content.id)}" alt="favorite" class="cw-card-icon">
-<img onclick="toggleVisibility(this, '${content.id}', '${contentType}')" src="assets/${getVisibilityTemplate(content.id)}" alt="visibility" class="cw-card-icon">
+<img onclick="toggleRating('${content.id}', '${contentType}')"" src="assets/${getFavoriteTemplate(content.id)}" alt="favorite" class="cw-card-icon">
+<img onclick="toggleVisibility('${content.id}', '${contentType}')" src="assets/${getVisibilityTemplate(content.id)}" alt="visibility" class="cw-card-icon">
 </div>
 ${getInformationTemplate(content.info)}
 </div>
@@ -30,10 +30,13 @@ function getImageTemplate(image, availability, contentId) {
 
 function getFavoriteTemplate(id){
     const actualFavorite = localStorage.getItem(`favorite.${id}`)
-    if(actualFavorite && actualFavorite === 'true'){
-        return "star_enabled.png"
+    if(actualFavorite && actualFavorite === '1'){
+        return "star_1.png"
     }
-    return "star_disabled.png";
+    if(actualFavorite && actualFavorite === '2'){
+        return "star_2.png"
+    }
+    return "star_0.png";
 }
 
 function getVisibilityTemplate(contentId){
@@ -63,23 +66,30 @@ function getAvailabilityTemplate(availability) {
     return `<img src="assets/${image}.png" class="cw-card-icon" alt="${image}"></a>`;
 }
 
-function toggleFavorite(element, id, contentType) {
-    const actualFavorite = localStorage.getItem(`favorite.${id}`)
-    if(actualFavorite && actualFavorite === 'true'){
-        localStorage.setItem(`favorite.${id}`, 'false');
-    } else {
-        localStorage.setItem(`favorite.${id}`, 'true');
+function toggleRating(contentId, contentType) {
+    const actualFavorite = localStorage.getItem(`favorite.${contentId}`)
+    if(actualFavorite && actualFavorite === '1'){
+        localStorage.setItem(`favorite.${contentId}`, '2');
+    } else  if(actualFavorite && actualFavorite === '2'){
+        localStorage.setItem(`favorite.${contentId}`, '0');
+    }
+    else {
+        localStorage.setItem(`favorite.${contentId}`, '1');
     }
     refreshList(contentType)
 }
 
-function toggleVisibility(element, contentId, contentType) {
+function toggleVisibility(contentId, contentType) {
     if(!isVisible(contentId)){
         localStorage.setItem(`visibility.${contentId}`, 'true');
     } else {
         localStorage.setItem(`visibility.${contentId}`, 'false');
     }
     refreshList(contentType)
+}
+
+function showRating() {
+
 }
 
 function getPegi(age) {
