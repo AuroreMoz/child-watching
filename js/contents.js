@@ -60,7 +60,56 @@ const series = [
         age: "40",
         info: "https://www.filmspourenfants.net/ella-oscar-hoo/",
         available: {"prime": ""},
-        image: "movies/ella-oscar-hoo.png"
+        image: "series/ella-oscar-hoo.png"
+    },
+    {
+        id: "s9",
+        name: "Tut Tut Cory Bolides",
+        age: "38",
+        available: {"netflix": "https://www.netflix.com/title/80237347"},
+        image: "series/tut-tut-cory-bolides.png"
+    },
+    {
+        id: "s10",
+        name: "Justin rêve",
+        age: "38",
+        available: {"netflix": "https://www.netflix.com/title/70272742"},
+        image: "series/justin-reve.png"
+    },
+    {
+        id: "s11",
+        name: "Comptines les oies",
+        age: "38",
+        available: {"netflix": "https://www.netflix.com/title/80226787"},
+        image: "series/comptines-les-oies.png"
+    },
+    {
+        id: "s12",
+        name: "Thomas et ses amis\nTous en avant",
+        age: "38",
+        available: {"netflix": "https://www.netflix.com/title/81553278"},
+        image: "series/thomas-amis.png"
+    },
+    {
+        id: "s13",
+        name: "Fonce, toutou, fonce",
+        age: "38",
+        available: {"netflix": "https://www.netflix.com/title/81047300"},
+        image: "series/fonce-toutou-fonce.png"
+    },
+    {
+        id: "s14",
+        name: "Sammy",
+        age: "38",
+        available: {"netflix": "https://www.netflix.com/title/80042177"},
+        image: "series/sammy.png"
+    },
+    {
+        id: "s15",
+        name: "Ada Twist,\nla scientifique",
+        age: "38",
+        available: {"netflix": "https://www.netflix.com/title/80198673"},
+        image: "series/ada-twist.png"
     },
 ];
 
@@ -302,12 +351,12 @@ function sortByFavorite(c1, c2) {
 
 function getSeries(){
     const age = getAge();
-    return series.filter((serie) => serie.age < age).sort(sortContents);
+    return series.filter((serie) => serie.age <= age).sort(sortContents);
 }
 
 function getMovies(){
     const age = getAge();
-    return movies.filter((movie) => movie.age < age).sort(sortContents);
+    return movies.filter((movie) => movie.age <= age).sort(sortContents);
 }
 
 function isVisible(contentId) {
