@@ -111,6 +111,14 @@ const series = [
         available: {"netflix": "https://www.netflix.com/title/80198673"},
         image: "series/ada-twist.png"
     },
+    {
+        id: "s16",
+        name: "Les Octonauts,\nmission terre",
+        age: "39",
+        available: {"netflix": "https://www.netflix.com/title/81154899"},
+        info: "https://www.filmspourenfants.net/les-octonauts/",
+        image: "series/octonauts-terre.png"
+    },
 ];
 
 const movies = [
@@ -298,6 +306,30 @@ const movies = [
         available: {"local": ""},
         image: "movies/toy_story.png"
     },
+    {
+        id: "s25",
+        name: "Les Octonauts,\net la ceinture de feu",
+        age: "39",
+        available: {"netflix": "https://www.netflix.com/title/81012130"},
+        info: "https://www.filmspourenfants.net/les-octonauts/",
+        image: "movies/octonauts-ceinture.png"
+    },
+    {
+        id: "s26",
+        name: "Les Octonauts,\net les grottes de Sac Actun",
+        age: "39",
+        available: {"netflix": "https://www.netflix.com/title/81009671"},
+        info: "https://www.filmspourenfants.net/les-octonauts/",
+        image: "movies/octonauts-grottes.png"
+    },
+    {
+        id: "s27",
+        name: "Les Octonauts,\net la grande barrière de corail",
+        age: "39",
+        available: {"netflix": "https://www.netflix.com/title/81012822"},
+        info: "https://www.filmspourenfants.net/les-octonauts/",
+        image: "movies/octonauts-corail.png"
+    },
 ];
 
 function getContents() {
@@ -361,10 +393,8 @@ function getMovies(){
 
 function isVisible(contentId) {
     const contentVisibility = localStorage.getItem(`visibility.${contentId}`) || 'true';
-    if(contentVisibility === 'true'){
-        return true;
-    }
-    return false;
+    return contentVisibility === 'true';
+
 }
 
 function hasAvailable(availability) {

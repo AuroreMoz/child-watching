@@ -54,7 +54,7 @@ function getInformationTemplate(informationToDisplay){
 }
 
 function getAvailabilityTemplate(availability) {
-    let image = "unavailable.png";
+    let image = "unavailable";
     let link = "";
     if (isAvailable(availability)) {
         image = Object.keys(availability)[0];
