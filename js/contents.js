@@ -229,7 +229,7 @@ const movies = [
     {
         id: "m15",
         name: "Kuzco 2\nKing Kronk",
-        age: "40",
+        age: "42",
         info: "https://www.filmspourenfants.net/kuzco-2-king-kronk/",
         available: {"local": ""},
         image: "movies/kuzco_2.png"
@@ -332,10 +332,12 @@ const movies = [
     },
 ];
 
-function getContents() {
+function getAllContents() {
     return {
         series: getSeries(),
         movies: getMovies(),
+        hiddenSeries: getHiddenSeries(),
+        hiddenMovies: getHiddenMovies(),
     };
 }
 
@@ -356,19 +358,6 @@ function getAge() {
     }
 }
 
-function sortContents(c1, c2){
-    const visibilityC1 = isVisible(c1.id);
-    const visibilityC2 = isVisible(c2.id);
-    if(visibilityC1 === visibilityC2) {
-        return sortByFavorite(c1, c2);
-    } else {
-        if(visibilityC1){
-            return -1;
-        }
-        return 1;
-    }
-}
-
 function sortByFavorite(c1, c2) {
     const favoriteC1 = localStorage.getItem(`favorite.${c1.id}`) || '0';
     const favoriteC2 = localStorage.getItem(`favorite.${c2.id}`) || '0';
@@ -381,20 +370,31 @@ function sortByFavorite(c1, c2) {
     return 1;
 }
 
-function getSeries(){
-    const age = getAge();
-    return series.filter((serie) => serie.age <= age).sort(sortContents);
-}
-
-function getMovies(){
-    const age = getAge();
-    return movies.filter((movie) => movie.age <= age).sort(sortContents);
-}
-
 function isVisible(contentId) {
     const contentVisibility = localStorage.getItem(`visibility.${contentId}`) || 'true';
     return contentVisibility === 'true';
+}
 
+function getContents(contents, showIsVisible = true){
+    const age = getAge();
+    return contents.filter((content) => content.age <= age
+        && isVisible(content.id) === showIsVisible).sort(sortByFavorite);
+}
+
+function getSeries(){
+    return getContents(series);
+}
+
+function getMovies(){
+    return getContents(movies);
+}
+
+function getHiddenSeries(){
+    return getContents(series, false);
+}
+
+function getHiddenMovies(){
+    return getContents(movies, false);
 }
 
 function hasAvailable(availability) {

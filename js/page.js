@@ -1,49 +1,96 @@
+const SERIES_MESSAGE = 'série disponible';
+const MOVIES_MESSAGE = 'film disponible';
+const HIDDEN_SERIES_MESSAGE = 'série masquée';
+const HIDDEN_MOVIES_MESSAGE = 'film masqué';
 
 // chargement des contenus sur la page et création des cartes
-const contentsToDisplay = getContents();
+let contentsToDisplay = getAllContents();
 
 const seriesContainer = document.getElementById('cw-content-series');
-addSeries(contentsToDisplay.series);
+addSeries();
 
 const moviesContainer = document.getElementById('cw-content-movies');
-addMovies(contentsToDisplay.movies);
+addMovies();
+
+const hiddenSeriesContainer = document.getElementById('cw-content-hidden-series');
+addHiddenSeries();
+
+const hiddenMoviesContainer = document.getElementById('cw-content-hidden-movies');
+addHiddenMovies();
 
 // nom de l'enfant
 refreshName()
 
-function addSeries(seriesToDisplay){
+function addContents(contentsToDisplay, htmlContainer, message, contentType){
     let template = "";
-    seriesToDisplay.forEach((serieToDisplay) => {
-        template += `<li>${getCardTemplate(serieToDisplay, 'SERIES')}</li>`
+    contentsToDisplay.forEach((contentToDisplay) => {
+        template += `<li>${getCardTemplate(contentToDisplay, contentType)}</li>`
     })
-    seriesContainer.innerHTML = template === "" ? "Pas de série disponible pour cet âge.":template;
+    htmlContainer.innerHTML = template === "" ? `Pas de ${message} pour cet âge.`:template;
+
 }
 
-function addMovies(moviesToDisplay) {
-    let template = "";
-    moviesToDisplay.forEach((movieToDisplay) => {
-        template += `<li>${getCardTemplate(movieToDisplay, 'MOVIES')}</li>`
-    })
-    moviesContainer.innerHTML = template === "" ? "Pas de film disponible pour cet âge.":template;
+function addSeries() {
+    addContents(contentsToDisplay.series, seriesContainer, SERIES_MESSAGE, 'SERIES');
+}
+
+function addMovies() {
+    addContents(contentsToDisplay.movies, moviesContainer, MOVIES_MESSAGE, 'MOVIES');
+
+}
+
+function addHiddenSeries() {
+    addContents(contentsToDisplay.hiddenSeries, hiddenSeriesContainer, HIDDEN_SERIES_MESSAGE, 'HIDDEN_SERIES');
+}
+
+function addHiddenMovies() {
+    addContents(contentsToDisplay.hiddenMovies, hiddenMoviesContainer, HIDDEN_MOVIES_MESSAGE, 'HIDDEN_MOVIES');
 }
 
 function refreshList(contentType){
     switch (contentType){
         case 'SERIES': {
-            contentsToDisplay.series = getSeries()
-            addSeries(contentsToDisplay.series)
+            contentsToDisplay.series = getSeries();
+            addSeries();
             break;
         }
         case 'MOVIES': {
-            contentsToDisplay.movies = getMovies()
-            addMovies(contentsToDisplay.movies)
+            contentsToDisplay.movies = getMovies();
+            addMovies();
+            break;
+        }
+        case 'HIDDEN_SERIES': {
+            contentsToDisplay.hiddenSeries = getHiddenSeries();
+            addHiddenSeries();
+            break;
+        }
+        case 'HIDDEN_MOVIES': {
+            contentsToDisplay.hiddenMovies = getHiddenMovies();
+            addHiddenMovies();
+            break;
+        }
+        case 'ALL_SERIES':
+        case 'ALL_HIDDEN_SERIES': {
+            contentsToDisplay.series = getSeries();
+            contentsToDisplay.hiddenSeries = getHiddenSeries();
+            addSeries();
+            addHiddenSeries()
+            break;
+        }
+        case 'ALL_MOVIES':
+        case 'ALL_HIDDEN_MOVIES': {
+            contentsToDisplay.movies = getMovies();
+            contentsToDisplay.hiddenMovies = getHiddenMovies();
+            addMovies();
+            addHiddenMovies();
             break;
         }
         case 'ALL': {
-            contentsToDisplay.series = getSeries()
-            addSeries(contentsToDisplay.series)
-            contentsToDisplay.movies = getMovies()
-            addMovies(contentsToDisplay.movies)
+            contentsToDisplay = getAllContents();
+            addSeries();
+            addMovies();
+            addHiddenSeries();
+            addHiddenMovies();
             break;
         }
         default: break;

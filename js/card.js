@@ -86,10 +86,7 @@ function toggleVisibility(contentId, contentType) {
         localStorage.setItem(`visibility.${contentId}`, 'false');
     }
     refreshList(contentType)
-}
-
-function showRating() {
-
+    refreshList(`ALL_${contentType}`)
 }
 
 function getPegi(age) {
