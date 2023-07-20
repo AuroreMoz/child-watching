@@ -119,6 +119,22 @@ const series = [
         info: "https://www.filmspourenfants.net/les-octonauts/",
         image: "series/octonauts-terre.png"
     },
+    {
+        id: "s17",
+        name: "Pyjamasques",
+        age: "43",
+        available: {"netflix": "https://www.netflix.com/title/80187223"},
+        info: "https://www.filmspourenfants.net/les-pyjamasques/",
+        image: "series/pyjamasques.png"
+    },
+    {
+        id: "s18",
+        name: "Pat Patrouille",
+        age: "39",
+        available: {"netflix": "https://www.netflix.com/title/80187223"},
+        info: "https://www.filmspourenfants.net/la-pat-patrouille/",
+        image: "series/pat-patrouille.png"
+    },
 ];
 
 const movies = [
@@ -140,8 +156,8 @@ const movies = [
     },
     {
         id: "m3",
-        name: "Arrietty,\n le petit monde des chapardeurs ",
-        age: "48",
+        name: "Arrietty,\n le petit monde des chapardeurs",
+        age: "43",
         info: "https://www.filmspourenfants.net/arrietty-le-petit-monde-des-chapardeurs/",
         available: {"netflix": "https://www.netflix.com/title/70216227"},
         image: "movies/arrietty.png"
@@ -229,7 +245,7 @@ const movies = [
     {
         id: "m15",
         name: "Kuzco 2\nKing Kronk",
-        age: "42",
+        age: "60",
         info: "https://www.filmspourenfants.net/kuzco-2-king-kronk/",
         available: {"local": ""},
         image: "movies/kuzco_2.png"
@@ -261,7 +277,7 @@ const movies = [
     {
         id: "m19",
         name: "Clochette\net le tournoi des fées",
-        age: "40",
+        age: "60",
         info: "https://www.filmspourenfants.net/clochette-et-le-tournoi-des-fees/",
         available: {},
         image: "movies/clochette_tournoi.png"
@@ -277,7 +293,7 @@ const movies = [
     {
         id: "m21",
         name: "La féé Clochette",
-        age: "48",
+        age: "43",
         info: "https://www.filmspourenfants.net/la-fee-clochette/",
         available: {"local": ""},
         image: "movies/clochette.png"
@@ -301,13 +317,13 @@ const movies = [
     {
         id: "m24",
         name: "Toy story",
-        age: "72",
+        age: "43",
         info: "https://www.filmspourenfants.net/toy-story-1995/",
         available: {"local": ""},
         image: "movies/toy_story.png"
     },
     {
-        id: "s25",
+        id: "m25",
         name: "Les Octonauts,\net la ceinture de feu",
         age: "39",
         available: {"netflix": "https://www.netflix.com/title/81012130"},
@@ -315,7 +331,7 @@ const movies = [
         image: "movies/octonauts-ceinture.png"
     },
     {
-        id: "s26",
+        id: "m26",
         name: "Les Octonauts,\net les grottes de Sac Actun",
         age: "39",
         available: {"netflix": "https://www.netflix.com/title/81009671"},
@@ -323,12 +339,44 @@ const movies = [
         image: "movies/octonauts-grottes.png"
     },
     {
-        id: "s27",
+        id: "m27",
         name: "Les Octonauts,\net la grande barrière de corail",
         age: "39",
         available: {"netflix": "https://www.netflix.com/title/81012822"},
         info: "https://www.filmspourenfants.net/les-octonauts/",
         image: "movies/octonauts-corail.png"
+    },
+    {
+        id: "m28",
+        name: "Cars",
+        age: "39",
+        available: {"local": ""},
+        info: "https://www.filmspourenfants.net/cars/",
+        image: "movies/cars.png"
+    },
+    {
+        id: "m29",
+        name: "Planes",
+        age: "39",
+        available: {"local": ""},
+        info: "https://www.filmspourenfants.net/planes/",
+        image: "movies/planes.png"
+    },
+    {
+        id: "m30",
+        name: "Turbo",
+        age: "43",
+        available: {"local": ""},
+        info: "https://www.filmspourenfants.net/turbo/",
+        image: "movies/turbo.png"
+    },
+    {
+        id: "m31",
+        name: "Winnie l'ourson",
+        age: "43",
+        available: {"local": ""},
+        info: "https://www.filmspourenfants.net/les-aventures-de-winnie-lourson/",
+        image: "movies/winnie.png"
     },
 ];
 

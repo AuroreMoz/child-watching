@@ -54,16 +54,16 @@ function getInformationTemplate(informationToDisplay){
 }
 
 function getAvailabilityTemplate(availability) {
-    let image = "unavailable";
+    let image = "local";
     let link = "";
     if (isAvailable(availability)) {
         image = Object.keys(availability)[0];
         link = Object.values(availability)[0];
         return `<a href=${link} target="_blank">
-                <img src="assets/${image}.png" class="cw-card-icon" alt="${image}">
+                <img src="assets/${image}.png" class="cw-card-icon__clickable" alt="${image}">
                 </a>`;
     }
-    return `<img src="assets/${image}.png" class="cw-card-icon" alt="${image}"></a>`;
+    return `<img src="assets/${image}.png" class="cw-card-icon" alt="${image}">`;
 }
 
 function toggleRating(contentId, contentType) {
