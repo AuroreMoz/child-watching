@@ -131,9 +131,16 @@ const series = [
         id: "s18",
         name: "Pat Patrouille",
         age: "39",
-        available: {"netflix": "https://www.netflix.com/title/80187223"},
+        available: {"netflix": "https://www.netflix.com/title/80026226"},
         info: "https://www.filmspourenfants.net/la-pat-patrouille/",
         image: "series/pat-patrouille.png"
+    },
+    {
+        id: "s19",
+        name: "Nico Nickel\nle camion poubelle",
+        age: "39",
+        available: {"netflix": "https://www.netflix.com/title/80234731"},
+        image: "series/nico-nickel.png"
     },
 ];
 
