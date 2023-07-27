@@ -54,7 +54,7 @@ function getInformationTemplate(informationToDisplay){
 }
 
 function getAvailabilityTemplate(availability) {
-    let image = "local";
+    let image = Object.keys(availability)[0] || "local";
     let link = "";
     if (isAvailable(availability)) {
         image = Object.keys(availability)[0];
