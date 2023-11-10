@@ -142,6 +142,13 @@ const series = [
         available: {"netflix": "https://www.netflix.com/title/80234731"},
         image: "series/nico-nickel.png"
     },
+    {
+        id: "s20",
+        name: "Masha et Michka",
+        age: "46",
+        available: {"netflix": "https://www.netflix.com/title/70286901"},
+        image: "series/masha-michka.png"
+    },
 ];
 
 const movies = [
