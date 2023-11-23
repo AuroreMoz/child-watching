@@ -149,6 +149,13 @@ const series = [
         available: {"netflix": "https://www.netflix.com/title/70286901"},
         image: "series/masha-michka.png"
     },
+    {
+        id: "s21",
+        name: "Gigantosaurus",
+        age: "47",
+        available: {"netflix": "https://www.netflix.com/title/80223368"},
+        image: "series/gigantosaurus.png"
+    },
 ];
 
 const movies = [
